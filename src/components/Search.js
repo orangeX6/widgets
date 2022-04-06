@@ -37,41 +37,6 @@ const Search = () => {
     search();
   }, [debouncedTerm]);
 
-  // useEffect(() => {
-  //   if (!term) return;
-  //   // console.log(
-  //   //   setTimeout(() => {
-  //   //     console.log('hi');
-  //   //   }, 10000)
-  //   // );
-
-  //   const search = async () => {
-  //     const { data } = await axios.get('https://en.wikipedia.org/w/api.php', {
-  //       params: {
-  //         action: 'query',
-  //         list: 'search',
-  //         format: 'json',
-  //         origin: '*',
-  //         srsearch: term,
-  //       },
-  //     });
-
-  //     setResults(data.query.search);
-  //   };
-
-  //   if (term && !results.length) {
-  //     search();
-  //   } else {
-  //     const timeoutId = setTimeout(() => {
-  //       search();
-  //     }, 2000);
-
-  //     return () => {
-  //       clearTimeout(timeoutId);
-  //     };
-  //   }
-  // }, [term, results.length]);
-
   const renderedResults = results.map((result) => {
     return (
       <div key={result.pageid} className="item">
@@ -79,6 +44,8 @@ const Search = () => {
           <a
             className="ui inverted secondary button"
             href={`https://en.wikipedia.org?curid=${result.pageid}`}
+            target="_blank"
+            rel="noreferrer noopener"
           >
             Go
           </a>
