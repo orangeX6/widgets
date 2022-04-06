@@ -47,6 +47,12 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
             {renderedOptions}
           </div>
         </div>
+        <div
+          className="text"
+          style={{ color: selected.value, backgroundColor: 'yellow' }}
+        >
+          The text is {selected.value}!!
+        </div>
       </div>
     </div>
   );
